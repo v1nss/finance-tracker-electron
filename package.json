@@ -1,0 +1,20 @@
+{
+  "name": "finance-tracker-electron",
+  "productName": "Finance Tracker",
+  "version": "1.0.0",
+  "description": "App that will track your finance",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "finance-tracker-electron"
+  },
+  "author": "Vincent Robles",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^27.0.2",
+    "toastify-js": "^1.12.0"
+  }
+}
