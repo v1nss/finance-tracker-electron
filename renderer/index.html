@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello World</h1>
+    <div class="notes">
+
+    </div>
+    <!-- <input type="number"> -->
+    <form action="" method="post" autocomplete="off">
+        <div class="field">
+            <!-- <input type="text" name="expenses[]"> -->
+            <input type="number" name="notes[]">
+            <span onclick="addField(this)">+</span>
+            <span onclick="deleteField(this)">-</span>
+        </div>
+        <button type="submit">Display Expenses</button>
+        <button class="reset" onclick="location.reload()">Reset App</button>
+    </form>
+  
+    <script src="./script.js"></script>
 </body>
 </html>

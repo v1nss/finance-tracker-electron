@@ -1,0 +1,116 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: sans-serif;
+	min-height: 100%;
+	color: #555;
+	width:  600px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+h1{
+	text-align: center;
+	color:  #888;
+}
+
+.notes{
+	padding: 20px;
+}
+
+.notes p{
+	border-bottom: thin dotted #d4d4d4;
+	padding: 20px 10px 0px 0px;
+	font-style: italic;
+	font-size: 18px;
+}
+
+.notes p span{
+	font-size: 16px;
+	float:  right;
+	cursor: pointer;
+	display: inline-block;
+}
+.notes p span.mark{
+	color: green;
+	font-size: 30px;
+	transform: translateY(-10px);
+}
+
+form{
+	width:  100%;
+}
+
+.field{
+	margin-bottom: 10px;
+	display: flex;
+	transition: opacity 0.3s;
+}
+
+.field input{
+	padding: 5px 10px;
+	width: 100%;
+	border: none;
+	 border: thin solid #d4d4d4; 
+	font-size: 20px;
+	color: #888;
+	font-family: ubuntu, sans-serif;
+	background-color: #f9f9f9;
+}
+.field input:focus{
+	outline: none;
+}
+
+.field span{
+	display: inline-block;
+	margin-left: 10px;
+	cursor: pointer;
+	background-color: #f9f9f9;
+	padding: 10px;
+	font-size: 20px;
+	transition: all 0.3s;
+	font-weight: bold;
+	border: thin solid #d4d4d4; 
+}
+.field span:last-child{
+	display: none;
+	padding: 12px;
+}
+.field span:hover{
+	background-color: green;
+	border: thin solid green;
+	color: #fff;
+}
+.field span:last-child:hover{
+	background-color: red;
+	border: thin solid red;
+	color: #fff;
+}
+
+
+button{
+	display: block;
+	padding: 10px 20px;
+	margin-top: 30px;
+	width:  150px;
+	float: left;
+	font-size: 16px;
+	background-color: #5b8ebf;
+	border: thin solid #d5e4d4;
+	cursor: pointer;
+	color: #fff;
+}
+
+button:active{
+	background-color: #aedea6;
+	color: #000;
+}
+
+.reset{
+	float: right;
+	background-color: green;
+}
