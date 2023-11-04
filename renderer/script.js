@@ -1,4 +1,3 @@
-// let form = document.forms[0];
 let displayButton = document.querySelector("form button");
 
 function addField(element){
@@ -10,9 +9,13 @@ function addField(element){
     let div = document.createElement("div");
     div.setAttribute("class", "field");
 
-    let field = document.createElement("input");
-    field.setAttribute("type", "number");
-    field.setAttribute("name", "notes[]");
+    let numfield = document.createElement("input");
+	let textfield = document.createElement("input");
+    numfield.setAttribute("type", "number");
+    numfield.setAttribute("name", "notes[]");
+	textfield.setAttribute("type", "text");
+	textfield.setAttribute("name", "expenses[]");
+	
 
     let plus = document.createElement("span");
     plus.setAttribute("onclick", "addField(this)");
@@ -25,7 +28,8 @@ function addField(element){
     minus.appendChild(minusText);
 
     form.insertBefore(div, displayButton);
-    div.appendChild(field);
+	div.appendChild(textfield);
+    div.appendChild(numfield);
     div.appendChild(plus);
     div.appendChild(minus);
 
@@ -41,52 +45,52 @@ function deleteField(element){
 let form = document.forms[0];
 form.addEventListener("submit", fetchTextNotes);
 function fetchTextNotes(event){
-	// prevent the form to communicate with the server.
+
 	event.preventDefault();
 
-	// Fetch the values from the input fields.
-	let data = new FormData(form);
+	let dataContainer = new FormData(form);
 
-	// Storing the values inside an array so we can handle them.
-	// we don't want empty values.
-	let notes = [];
-    // let expenses = [];
-	data.forEach( function(value){
+	let data = [];
+	dataContainer.forEach( function(value){
 		if(value !== ""){
-			notes.push(value);
+			data.push(value);
 		}
 	});
-    // data.forEach( function(text){
-	// 	if(value !== ""){
-	// 		expenses.push(text);
-	// 	}
-	// });
 
+	let num = data.filter(item => !isNaN(item));
+
+	let expenses = data.filter(item => isNaN(item));
+	
+	num = num.map(function(str){
+		return parseInt(str);
+	});
+	
 	// Output the values on the screen.
 	let out = "";
-	for(let note of notes){
-        // for(let expense of expenses){
-        //     out += `
-        //     <p>${expense}</p>
-        
-			
-		// `;
-        // }
+	let out1 = "";
+	for(let nums of num){
         out += `
-            
-               <p>${note}</p>
-			
+            <p>${nums}</p>
 		`;
-            
-		
 	}
+	
+	for(let expense of expenses){
+        out1 += `
+            <p>${expense}</p>
+		`;
+	}
+	console.log(num);
+	console.log(expenses);
+
 	document.querySelector(".notes").innerHTML = out;
+	document.querySelector(".notes").innerHTML = out1;
 
 	// Delete all input elements except the last one.
 	let inputFields = document.querySelectorAll(".field");
 	inputFields.forEach(function(element, index){
 		if(index == inputFields.length - 1){
 			element.children[0].value = "";
+			element.children[1].value = "";
 		}else{
 			element.remove();
 		}
