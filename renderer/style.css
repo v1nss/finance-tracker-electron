@@ -61,6 +61,18 @@ form{
 	font-family: ubuntu, sans-serif;
 	background-color: #f9f9f9;
 }
+
+.budget {
+	padding: 5px 10px;
+	width: 100%;
+	border: none;
+	border: thin solid #d4d4d4; 
+	font-size: 20px;
+	color: #888;
+	font-family: ubuntu, sans-serif;
+	background-color: #f9f9f9;
+	margin-bottom: 10px;
+}
 .field input:focus{
 	outline: none;
 }

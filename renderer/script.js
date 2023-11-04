@@ -49,7 +49,8 @@ function fetchTextNotes(event){
 	event.preventDefault();
 
 	let dataContainer = new FormData(form);
-
+	let budget = document.querySelector('input[name="budget"]').value;
+	console.log(budget);
 	let data = [];
 	dataContainer.forEach( function(value){
 		if(value !== ""){
@@ -65,7 +66,6 @@ function fetchTextNotes(event){
 		return parseInt(str);
 	});
 	
-	// Output the values on the screen.
 	let out = "";
 	let out1 = "";
 	for(let nums of num){
@@ -85,7 +85,6 @@ function fetchTextNotes(event){
 	document.querySelector(".notes").innerHTML = out;
 	document.querySelector(".notes").innerHTML = out1;
 
-	// Delete all input elements except the last one.
 	let inputFields = document.querySelectorAll(".field");
 	inputFields.forEach(function(element, index){
 		if(index == inputFields.length - 1){
@@ -95,4 +94,15 @@ function fetchTextNotes(event){
 			element.remove();
 		}
 	});
+
+	return compute(num, expenses, budget);
+}
+
+function compute(num, expenses, budget) {
+	console.log("tinawag mo ba q?");
+	console.log(budget);
+	num.forEach(function(value){
+		budget -= value;
+	})
+	console.log(budget);
 }
